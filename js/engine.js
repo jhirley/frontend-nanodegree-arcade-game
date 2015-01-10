@@ -28,7 +28,7 @@ var Engine = (function(global) {
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-
+    
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -67,6 +67,7 @@ var Engine = (function(global) {
         reset();
         lastTime = Date.now();
         main();
+
     }
 
     /* This function is called by main (our game loop) and itself calls all
@@ -81,6 +82,15 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         // checkCollisions();
+    }
+
+     /* 1/10/2014 inital though ,Check collision need to loop thru
+    jf* for each enemy x and player x  && enemy y and player y
+    jf* I am sure will need some sort of enemy.x + enemy.width && 
+    jf* enemy.y + enemy.height
+     */ 
+    function checkCollisions(){
+
     }
 
     /* This is called by the update function  and loops through all of the
@@ -161,6 +171,7 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        newGame();
     }
 
     /* Go ahead and load all of the images we know we're going to need to
