@@ -4,3 +4,12 @@ frontend-nanodegree-arcade-game
 Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
 
 for self-checking their submission.
+
+https://piazza.com/class/i23vpy8h7l27la?cid=343
+	var Enemy = function() 
+	function gameStart() {
+http://stackoverflow.com/questions/20846944/check-if-two-items-overlap-on-a-canvas-using-javascript
+	function checkCollision(pl,en) {
+
+http://www.javascriptkit.com/javatutors/randomnum.shtml
+random numbers	
