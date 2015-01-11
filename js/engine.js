@@ -81,7 +81,7 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
 
      /* 1/10/2014 inital though ,Check collision need to loop thru
@@ -90,6 +90,21 @@ var Engine = (function(global) {
     jf* enemy.y + enemy.height
      */ 
     function checkCollisions(){
+        allEnemies.forEach(function(enemy) {
+   //jf       console.log(enemy.x+", "+enemy.y+", "+ (enemy.x+ enemy.width) +", "+ (enemy.y+ enemy.height));
+   //jf       console.log(player.x+", "+player.y+", "+ (player.x+ player.width) +", "+ (player.y+ player.height));
+
+            if (  
+                ((enemy.x + 81) > player.x) && //jf top left
+                (enemy.x < (player.x + 81)) && //jf top right
+                (enemy.y < (player.y + 70)) && //jf had to tweak these x and y settings
+                ((enemy.y + 70) > player.y )
+                ){
+               //jf console.log("Iceburg !!");   
+                player.x =2 * 101;
+                player.y = 400; 
+            }
+        });
 
     }
 
@@ -101,6 +116,7 @@ var Engine = (function(global) {
      * render methods.
      */
     function updateEntities(dt) {
+
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
@@ -117,6 +133,8 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
+         ctx.clearRect(0,0,canvas.height,canvas.width); //jf 
+         //jf this line added to fix the headdraw over the edge issue
         var rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 3 of stone
